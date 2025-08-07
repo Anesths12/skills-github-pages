@@ -300,12 +300,13 @@
                 <h1 class="company-title">Enalios Commercial Hellenic Divers</h1>
             </div>
     
-            <!-- Κουμπί mobile menu -->
             <button class="menu-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
+            
+    
     
             <!-- Navigation menu -->
             <nav class="main-nav">
@@ -318,7 +319,6 @@
             </nav>
         </div>
     </header>
-    
 
     <!-- Main Content Section -->
     <main id="main-content">
@@ -392,5 +392,31 @@
             </ul>
         </div>
     </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            // Αρχική κατάσταση - κλείσιμο menu
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        
+            menuToggle.addEventListener('click', function() {
+                // Εναλλαγή κατάστασης menu
+                this.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+        
+            // Κλείσιμο όταν πατηθεί link
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                });
+            });
+        });
+                </script>
 </body>
 </html>
