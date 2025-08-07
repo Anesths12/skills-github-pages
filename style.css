@@ -28,7 +28,7 @@ body {
     font-size: 1.3rem;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 0 -410px; /* Αριστερό margin -5px για να έρθει πιο κοντά */
+    margin: 0 0 0 -300px; /* Αριστερό margin -5px για να έρθει πιο κοντά */
     white-space: nowrap;
 }
 
@@ -93,6 +93,7 @@ body {
 }
 
 /* Navigation - Desktop */
+/* Clean Horizontal Navigation */
 .main-nav {
     display: block;
 }
@@ -100,7 +101,9 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem; /* Αραιότερα gaps */
+    margin: 0;
+    padding: 0;
 }
 
 .main-nav a {
@@ -108,30 +111,48 @@ body {
     color: #fff;
     font-weight: 500;
     font-size: 1.1rem;
-    transition: all 0.3s;
     padding: 0.5rem 0;
     position: relative;
+    transition: all 0.3s ease-out;
 }
 
-.main-nav a:hover {
-    color: #70adcc;
-}
-
+/* Effect 1: Subtle Underline Grow */
 .main-nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
-    left: 0;
+    left: 50%;
     width: 0;
     height: 2px;
     background: #70adcc;
-    transition: width 0.3s;
+    transform: translateX(-50%);
+    transition: width 0.3s ease-out;
 }
 
 .main-nav a:hover::after {
     width: 100%;
 }
 
+/* Effect 2: Soft Color Transition */
+.main-nav a:hover {
+    color: #a8d8f0; /* Πιο ανοιχτό blue */
+}
+
+/* Active State */
+.main-nav a.active {
+    color: #70adcc;
+}
+
+.main-nav a.active::after {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-nav ul {
+        gap: 1.5rem;
+    }
+}
 /* Hero Section */
 .hero-section {
     display: flex;
@@ -225,6 +246,21 @@ body {
 
 .footer-container p {
     margin: 0.5rem 0;
+}
+
+.social-links {
+    margin-bottom: 1rem;
+}
+
+.social-links a {
+    color: #aaa;
+    margin: 0 10px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #fff;
 }
 
 /* Responsive Design */
