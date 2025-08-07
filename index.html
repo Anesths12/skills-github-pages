@@ -15,6 +15,12 @@
             <img src="https://i.postimg.cc/D0VzFr7B/LOGO-MARKOPOULOS.png" alt="Λογότυπο" class="header-logo">
             <h1 class="company-title">Enalios Commercial Hellenic Divers </h1>
             <nav class="main-nav">
+                 <!-- Προσθήκη του menu toggle button -->
+        <button class="menu-toggle" aria-label="Toggle navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
                 <ul>
                     <li><a href="#home">Αρχική</a></li>
                     <li><a href="#about">Σχετικά</a></li>
@@ -61,6 +67,16 @@
             <p>&copy; 2025 ΜΑΡΚΟΠΟΥΛΟΣ Α.Ε. Όλα τα δικαιώματα διατηρούνται.</p>
         </div>
     </footer>
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+        });
+        </script>
 </body> 
 </html>
