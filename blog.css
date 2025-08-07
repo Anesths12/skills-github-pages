@@ -123,30 +123,6 @@
     font-weight: 300;
 }
 
-/* Tags Styling */
-.article-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-}
-
-.tag {
-    background: rgba(112, 173, 204, 0.2);
-    color: var(--accent-blue);
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    transition: all 0.3s ease;
-    font-weight: 500;
-}
-
-.tag:hover {
-    background: var(--accent-blue);
-    color: var(--dark-bg);
-    transform: translateY(-2px);
-}
-
 /* Read More Link */
 .read-more {
     display: inline-flex;
