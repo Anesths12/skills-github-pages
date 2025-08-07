@@ -22,20 +22,26 @@ body {
 .logo-title-container {
     display: flex;
     align-items: center;
+    gap: 1rem; /* Απόσταση ανάμεσα στο λογότυπο και τον τίτλο */
+    flex-wrap: nowrap;
+    overflow: hidden;
 }
 
 .company-title {
     font-size: 1.3rem;
     font-weight: 700;
     color: #fff;
-    margin: 0 0 0 -300px; /* Αριστερό margin -5px για να έρθει πιο κοντά */
     white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 0; /* Καταργεί το -300px που προκαλούσε το πρόβλημα */
 }
+
 
 @media (max-width: 768px) {
     .company-title {
         font-size: 1.1rem;
-        margin-left: -3px; /* Λίγο λιγότερο για mobile */
+        margin-left: -3px;
     }
 }
 
@@ -45,6 +51,7 @@ body {
         margin-left: -2px;
     }
 }
+
 .site-header {
     background: rgba(20, 20, 20, 0.95);
     backdrop-filter: blur(4px);
@@ -75,74 +82,20 @@ body {
 .header-logo:hover {
     transform: scale(1.05);
 }
-/* Mobile Menu Styles */
-@media (max-width: 768px) {
-    .logo-title-container {
-        flex: 1;
-    }
-    
-    .company-title {
-        font-size: 1rem;
-        margin-left: 10px;
-        white-space: normal;
-        line-height: 1.3;
-    }
-    
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 40px;
-        height: 40px;
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
-    }
-    
-    .main-nav {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(20, 20, 20, 0.98);
-        backdrop-filter: blur(8px);
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-    
-    .main-nav.active {
-        max-height: 500px;
-        border-bottom: 1px solid #333;
-    }
-    
-    .main-nav ul {
-        flex-direction: column;
-        gap: 0;
-        padding: 1rem;
-    }
-    
-    .main-nav li {
-        width: 100%;
-    }
-    
-    .main-nav a {
-        display: block;
-        padding: 0.75rem 0;
-        border-bottom: 1px solid #333;
-    }
-    
-    .main-nav a:last-child {
-        border-bottom: none;
-    }
-}
-/* Mobile Menu Toggle */
+
+/* Mobile Menu Toggle Button */
 .menu-toggle {
     display: none;
     cursor: pointer;
     padding: 0.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: none;
+    z-index: 1001;
 }
 
 .menu-toggle span {
@@ -154,8 +107,19 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Navigation - Desktop */
-/* Clean Horizontal Navigation */
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Navigation Desktop */
 .main-nav {
     display: block;
 }
@@ -163,7 +127,7 @@ body {
 .main-nav ul {
     list-style: none;
     display: flex;
-    gap: 2.5rem; /* Αραιότερα gaps */
+    gap: 2.5rem;
     margin: 0;
     padding: 0;
 }
@@ -178,7 +142,6 @@ body {
     transition: all 0.3s ease-out;
 }
 
-/* Effect 1: Subtle Underline Grow */
 .main-nav a::after {
     content: '';
     position: absolute;
@@ -195,12 +158,10 @@ body {
     width: 100%;
 }
 
-/* Effect 2: Soft Color Transition */
 .main-nav a:hover {
-    color: #a8d8f0; /* Πιο ανοιχτό blue */
+    color: #a8d8f0;
 }
 
-/* Active State */
 .main-nav a.active {
     color: #70adcc;
 }
@@ -209,12 +170,72 @@ body {
     width: 100%;
 }
 
-/* Responsive */
+/* Mobile Header Layout Fix */
 @media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .logo-title-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .company-title {
+        font-size: 1rem;
+        margin-left: 0.5rem;
+        white-space: normal;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .main-nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: rgba(20, 20, 20, 0.98);
+        backdrop-filter: blur(8px);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+        width: 100%;
+    }
+
+    .main-nav.active {
+        max-height: 500px;
+        padding: 1rem 0;
+        border-bottom: 1px solid #333;
+    }
+
     .main-nav ul {
-        gap: 1.5rem;
+        flex-direction: column;
+        width: 100%;
+        gap: 0.5rem;
+        padding: 1rem;
+    }
+
+    .main-nav li {
+        width: 100%;
+    }
+
+    .main-nav a {
+        display: block;
+        width: 100%;
+        padding: 1rem;
+        border-bottom: 1px solid #333;
+    }
+
+    .main-nav a:last-child {
+        border-bottom: none;
     }
 }
+
 /* Hero Section */
 .hero-section {
     display: flex;
@@ -239,7 +260,7 @@ body {
 .hero-image img {
     max-width: 100%;
     height: auto;
-    max-height: 700px; /* Μεγάλο για desktop */
+    max-height: 700px;
 }
 
 @media (max-width: 768px) {
@@ -260,14 +281,14 @@ body {
     }
 
     .hero-image img {
-        max-height: 300px; /* Μεγαλύτερη για κινητό */
+        max-height: 300px;
         width: auto;
     }
 }
 
 @media (max-width: 480px) and (orientation: portrait) {
     .hero-image img {
-        max-height: 280px; /* Ελαφρώς μικρότερη για μικρές οθόνες */
+        max-height: 280px;
     }
 }
 
@@ -324,118 +345,3 @@ body {
 .social-links a:hover {
     color: #fff;
 }
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .header-container {
-        padding: 0 1rem;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
-
-    .main-nav {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s ease-out;
-    }
-
-    .main-nav.active {
-        max-height: 500px;
-        padding: 1rem 0;
-    }
-
-    .main-nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .hero-section {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem 1rem;
-    }
-
-    .hero-text {
-        padding-right: 0;
-        margin-bottom: 2rem;
-    }
-
-    .hero-image img {
-        max-height: 250px;
-    }
-}
-
-/* Menu Toggle Animation */
-.menu-toggle.active span:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.menu-toggle.active span:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ΠΕΙΡΑΜΑΤΙΚΟ ΣΤΑΔΙΟ */
-
