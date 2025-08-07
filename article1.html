@@ -207,21 +207,22 @@
             <h1 class="company-title">Enalios Commercial Hellenic Divers</h1>
         </div>
 
-        <!-- Κουμπί mobile menu -->
         <button class="menu-toggle" aria-label="Toggle navigation">
             <span></span>
             <span></span>
             <span></span>
         </button>
+        
+
 
         <!-- Navigation menu -->
         <nav class="main-nav">
-          <ul>
-            <li><a href="index.html">Αρχική</a></li>
-            <li><a href="index.html#about">Σχετικά</a></li>
-            <li><a href="blog.html" aria-current="page">Blog</a></li>
-            <li><a href="contact.html">Επικοινωνία</a></li>
-        </ul>
+            <ul>
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="index.html#about">Σχετικά</a></li>
+                <li><a href="blog.html" aria-current="page">Blog</a></li>
+                <li><a href="contact.html">Επικοινωνία</a></li>
+            </ul>
         </nav>
     </div>
 </header>
@@ -345,5 +346,29 @@
       });
     });
   </script>
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const mainNav = document.querySelector('.main-nav');
+            
+            // Αρχική κατάσταση - κλείσιμο menu
+            mainNav.classList.remove('active');
+            menuToggle.classList.remove('active');
+        
+            menuToggle.addEventListener('click', function() {
+                // Εναλλαγή κατάστασης menu
+                this.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            });
+        
+            // Κλείσιμο όταν πατηθεί link
+            document.querySelectorAll('.main-nav a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    mainNav.classList.remove('active');
+                });
+            });
+        });
+                </script>
 </body>
 </html>
