@@ -34,9 +34,8 @@ body {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 0; /* Καταργεί το -300px που προκαλούσε το πρόβλημα */
+    margin-left: 0; 
 }
-
 
 @media (max-width: 768px) {
     .company-title {
@@ -82,7 +81,6 @@ body {
 .header-logo:hover {
     transform: scale(1.05);
 }
-
 
 /* Navigation Desktop */
 .main-nav {
@@ -135,7 +133,6 @@ body {
     width: 100%;
 }
 
-
 /* Mobile Menu Toggle Button */
 .menu-toggle {
     display: none;
@@ -158,8 +155,6 @@ body {
     margin: 4px 0;
     transition: all 0.3s ease;
 }
-
-
 
 @media (max-width: 768px) {
     /* Εμφανίζουμε το κουμπί ΜΟΝΟ σε mobile */
@@ -322,4 +317,3 @@ body {
 .social-links a:hover {
     color: #fff;
 }
-
