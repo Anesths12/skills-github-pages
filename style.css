@@ -258,7 +258,7 @@ body {
     }
 
     .hero-image img {
-        max-height: 500px;
+        max-height: 300px;
         width: auto;
     }
 }
@@ -322,3 +322,4 @@ body {
 .social-links a:hover {
     color: #fff;
 }
+
