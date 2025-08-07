@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Καινοτομία στη Βιομηχανία | ΜΑΡΚΟΠΟΥΛΟΣ Α.Ε</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://i.postimg.cc/D0VzFr7B/LOGO-MARKOPOULOS.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .article-wrapper {
+      max-width: 900px;
+      margin: 120px auto 60px;
+      padding: 0 20px;
+    }
+    .article-title {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+      color: #fff;
+      line-height: 1.3;
+    }
+    .article-meta {
+      font-size: 0.9rem;
+      color: #70adcc;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .article-meta::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: #70adcc;
+    }
+    .article-hero {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+    .article-content {
+      padding: 0 10px;
+    }
+    .article-content p {
+      margin-bottom: 1.5rem;
+      color: #f5f5f5;
+      line-height: 1.8;
+      font-weight: 300;
+      font-size: 1.1rem;
+    }
+    .article-tags {
+      margin-top: 40px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .tag {
+      background: rgba(112, 173, 204, 0.2);
+      color: #70adcc;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+    }
+    .tag:hover {
+      background: rgba(112, 173, 204, 0.4);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 40px;
+      color: #f0c040;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      padding: 8px 15px;
+      border-radius: 4px;
+      background: rgba(240, 192, 64, 0.1);
+    }
+    .back-link:hover {
+      color: #ffffff;
+      background: rgba(240, 192, 64, 0.2);
+      transform: translateX(-5px);
+    }
+
+    /* Βελτιωμένο Carousel */
+    .carousel-container {
+      margin: 60px 0;
+      position: relative;
+    }
+    
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    
+    .carousel-inner {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
+    
+    .carousel-item {
+      min-width: 100%;
+      position: relative;
+    }
+    
+    .carousel-item img {
+      width: 100%;
+      height: 500px;
+      object-fit: cover;
+      display: block;
+    }
+    
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+      z-index: 10;
+    }
+    
+    .carousel-button {
+      background: rgba(20, 20, 20, 0.7);
+      border: none;
+      color: #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1.5rem;
+    }
+    
+    .carousel-button:hover {
+      background: rgba(112, 173, 204, 0.8);
+      transform: scale(1.1);
+    }
+    
+    .carousel-indicators {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      z-index: 10;
+    }
+    
+    .indicator {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.5);
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .indicator.active {
+      background: #70adcc;
+      transform: scale(1.2);
+    }
+    
+    @media (max-width: 768px) {
+      .carousel-item img {
+        height: 350px;
+      }
+      
+      .carousel-button {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .carousel-item img {
+        height: 250px;
+      }
+      
+      .article-title {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <img src="https://i.postimg.cc/D0VzFr7B/LOGO-MARKOPOULOS.png" alt="Λογότυπο" class="header-logo">
+      <h1 class="company-title">Enalios Commercial Hellenic Divers</h1>
+      <nav class="main-nav" aria-label="Κύρια πλοήγηση">
+        <ul>
+          <li><a href="index.html">Αρχική</a></li>
+          <li><a href="index.html#about">Σχετικά</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Επικοινωνία</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Article -->
+  <main class="article-wrapper">
+    <h1 class="article-title">Καινοτομία στη Βιομηχανία</h1>
+    <p class="article-meta">Δημοσιεύτηκε: 14 ΑΥΓΟΥΣΤΟΥ 2025 από ΜΑΡΚΟΠΟΥΛΟΣ Α.Ε</p>
+    <img src="https://i.postimg.cc/bJqmQHXm/488252133-1198733675372470-1445488604782190693-n.jpg" alt="Καινοτομία" class="article-hero">
+
+    <div class="article-content">
+      <p> (ΠΧ) Η καινοτομία είναι η κινητήρια δύναμη πίσω από την πρόοδο κάθε βιομηχανίας. Στην ΜΑΡΚΟΠΟΥΛΟΣ Α.Ε, η καινοτομία δεν αποτελεί απλώς στόχο — είναι θεμελιώδης αξία.</p>
+      <p>Από την υιοθέτηση αυτοματισμών και τεχνητής νοημοσύνης μέχρι την ενσωμάτωση έξυπνων αισθητήρων στις βιομηχανικές μας διαδικασίες, εργαζόμαστε συνεχώς για να μεταμορφώσουμε την παραγωγή σε κάτι πιο αποδοτικό, ασφαλές και βιώσιμο.</p>
+      <p>Με επενδύσεις σε R&D και στρατηγικές συνεργασίες με πανεπιστήμια και ερευνητικά κέντρα, διασφαλίζουμε ότι είμαστε πάντα μπροστά από τις εξελίξεις.</p>
+    </div>
+
+    <!-- Βελτιωμένο Carousel Gallery -->
+    <div class="carousel-container">
+      <div class="carousel">
+        <div class="carousel-inner" id="carousel-inner">
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/bJqmQHXm/488252133-1198733675372470-1445488604782190693-n.jpg" alt="Εικόνα 1">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/T2Fygy9v/497625980-2502159336805103-5119695547448409647-n.jpg" alt="Εικόνα 2">
+          </div>
+          <div class="carousel-item">
+            <img src="https://i.postimg.cc/HkCVvfRS/497506173-2502159136805123-3153284149134540357-n.jpg" alt="Εικόνα 3">
+          </div>
+        </div>
+        
+        <div class="carousel-controls">
+          <button class="carousel-button" id="prev-btn">❮</button>
+          <button class="carousel-button" id="next-btn">❯</button>
+        </div>
+        
+        <div class="carousel-indicators" id="indicators">
+          <!-- Indicators will be added by JavaScript -->
+        </div>
+      </div>
+    </div>
+
+    <a href="blog.html" class="back-link">
+      <span>←</span> Επιστροφή στο Blog
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p>&copy; 2025 ΜΑΡΚΟΠΟΥΛΟΣ Α.Ε. Όλα τα δικαιώματα διατηρούνται.</p>
+      <p>📞 +30 210 1234567 | ✉️ info@markopoulos.gr</p>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const carouselInner = document.getElementById('carousel-inner');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const indicatorsContainer = document.getElementById('indicators');
+      const items = document.querySelectorAll('.carousel-item');
+      
+      let currentIndex = 0;
+      const totalItems = items.length;
+      
+      // Create indicators
+      items.forEach((_, index) => {
+        const indicator = document.createElement('div');
+        indicator.classList.add('indicator');
+        if (index === 0) indicator.classList.add('active');
+        indicator.addEventListener('click', () => goToSlide(index));
+        indicatorsContainer.appendChild(indicator);
+      });
+      
+      // Update carousel position
+      function updateCarousel() {
+        carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+        
+        // Update indicators
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+          if (index === currentIndex) {
+            indicator.classList.add('active');
+          } else {
+            indicator.classList.remove('active');
+          }
+        });
+      }
+      
+      // Go to specific slide
+      function goToSlide(index) {
+        currentIndex = index;
+        updateCarousel();
+      }
+      
+      // Next slide
+      function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalItems;
+        updateCarousel();
+      }
+      
+      // Previous slide
+      function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+        updateCarousel();
+      }
+      
+      // Event listeners
+      nextBtn.addEventListener('click', nextSlide);
+      prevBtn.addEventListener('click', prevSlide);
+      
+      // Auto-rotate (optional)
+      let autoSlide = setInterval(nextSlide, 5000);
+      
+      // Pause on hover
+      const carousel = document.querySelector('.carousel');
+      carousel.addEventListener('mouseenter', () => clearInterval(autoSlide));
+      carousel.addEventListener('mouseleave', () => {
+        autoSlide = setInterval(nextSlide, 5000);
+      });
+    });
+  </script>
+</body>
+</html>
